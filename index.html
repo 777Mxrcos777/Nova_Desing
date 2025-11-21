@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Design - Creative Studio</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" href="https://i.postimg.cc/C50Y483N/logo-nova.jpg" type="image/x-icon">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- META SEO -->
+  <meta name="description" content="Nova Design: Estudio creativo especializado en diseño gráfico, branding y contenido visual.">
+  <meta name="keywords" content="diseño gráfico, branding, redes sociales, publicidad, diseño web, Colombia">
+  <meta name="author" content="Nova Design">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #2E2F2F;
+      color: #F2E0D5;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* ==== NAV ==== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 20px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #F2E0D5;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+      padding: 10px 20px;
+      border-radius: 6px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #fff;
+      background: #2E2F2F;
+      box-shadow: 0 0 12px #F2E0D5;
+    }
+
+    /* ==== SECCIONES ==== */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+      position: relative;
+    }
+
+    .section-content {
+      max-width: 1200px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .section-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==== LOGO ==== */
+    #inicio {
+      background: linear-gradient(135deg, #2E2F2F 0%, #1a1a1a 100%);
+      text-align: center;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo-img {
+      width: 650px;
+      height: auto;
+      display: block;
+      margin: 0 auto 25px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 0 15px rgba(242, 224, 213, 0.3));
+    }
+
+    .logo-img:hover {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 25px rgba(242, 224, 213, 0.6));
+    }
+
+    .tagline {
+      font-size: 1.6em;
+      letter-spacing: 6px;
+      color: #F2E0D5;
+      opacity: 0.85;
+    }
+
+    /* ==== QUIÉNES SOMOS ==== */
+    #quienes-somos {
+      background: #000000;
+    }
+
+    h2 {
+      font-size: 3em;
+      margin-bottom: 50px;
+      color: #F2E0D5;
+      text-align: center;
+      border-bottom: 4px solid #F2E0D5;
+      padding-bottom: 20px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text p {
+      line-height: 2;
+      font-size: 1.3em;
+      margin-bottom: 25px;
+    }
+
+    .about-img {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(242,224,213,0.3);
+    }
+
+    /* ==== SERVICIOS ==== */
+    #servicios {
+      background: #2E2F2F;
+    }
+
+    .services-layout {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .service-card {
+      background: #000000;
+      padding: 40px;
+      border-radius: 10px;
+      border-left: 5px solid #F2E0D5;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(242, 224, 213, 0.3);
+    }
+
+    .services-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .services-img img {
+      width: 85%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      object-fit: cover;
+    }
+
+    /* ==== TRABAJOS ==== */
+    #realizados {
+      background: #000000;
+    }
+
+    .realizados-content {
+      background: #2E2F2F;
+      padding: 50px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .realizados-content p {
+      line-height: 2;
+      font-size: 1.3em;
+      margin-bottom: 25px;
+    }
+
+    .portfolio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .portfolio-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .portfolio-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(242,224,213,0.4);
+    }
+
+    /* ==== TESTIMONIOS ==== */
+    #testimonios {
+      background: #2E2F2F;
+      text-align: center;
+    }
+
+    .testimonials-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .testimonial {
+      background: #000000;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 20px rgba(242,224,213,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-10px);
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .testimonial h4 {
+      color: #F2E0D5;
+      font-weight: 600;
+    }
+
+    /* ==== CONTACTO ==== */
+    #contacto {
+      background: #000000;
+    }
+
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .contact-item {
+      background: #2E2F2F;
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #F2E0D5;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      width: 220px;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(242, 224, 213, 0.4);
+    }
+
+    .contact-item img {
+      width: 60px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover img {
+      transform: scale(1.15);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #F2E0D5;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+
+    .contact-item p {
+      font-size: 0.95em;
+      color: #d4c8bd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #000000;
+      color: #F2E0D5;
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 768px) {
+      .logo-img { width: 240px; }
+      .tagline { font-size: 1em; letter-spacing: 4px; }
+      h2 { font-size: 2em; }
+      .about-container, .services-layout { flex-direction: column; }
+      .services-img img { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#inicio" class="active">Inicio</a></li>
+      <li><a href="#quienes-somos">¿Quiénes Somos?</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#realizados">Trabajos Realizados</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio">
+    <div class="section-content">
+      <div class="logo">
+        <img src="https://i.postimg.cc/XYbH78w8/logo-nova-removebg-preview.png" alt="Nova Design Logo" class="logo-img" />
+        <p class="tagline">CREATIVIDAD • DISEÑO • IMPACTO</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quienes-somos">
+    <div class="section-content">
+      <h2>¿Quiénes Somos?</h2>
+      <div class="about-container">
+        <div class="about-text">
+          <p>Nova Design es una empresa de diseño gráfico enfocada en crear identidades visuales modernas y elegantes para marcas que buscan destacar con estilo y simplicidad.</p>
+          <p>Transformamos ideas en experiencias visuales memorables que conectan con tu audiencia.</p>
+        </div>
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1000&q=80" alt="Equipo de trabajo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="section-content">
+      <h2>Servicios</h2>
+      <div class="services-layout">
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Identidad Visual</h3>
+            <ul>
+              <li>Logotipos profesionales</li>
+              <li>Paletas de color</li>
+              <li>Manuales de marca</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>Diseño para Redes Sociales</h3>
+            <ul>
+              <li>Contenido visual atractivo</li>
+              <li>Coherencia de marca</li>
+              <li>Posts y stories</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>Diseño Web Visual</h3>
+            <ul>
+              <li>Maquetas modernas</li>
+              <li>Interfaces limpias</li>
+              <li>Diseños en Figma</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>Diseño Publicitario</h3>
+            <ul>
+              <li>Flyers y posters</li>
+              <li>Banners digitales</li>
+              <li>Tarjetas de presentación</li>
+            </ul>
+          </div>
+        </div>
+        <div class="services-img">
+          <img src="https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1000&q=80" alt="Diseño en acción">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realizados">
+    <div class="section-content">
+      <h2>Servicios Realizados</h2>
+      <div class="realizados-content">
+        <p>Hemos desarrollado campañas publicitarias tanto impresas como digitales, diseñando afiches, volantes, banners y contenido visual para redes sociales.</p>
+        <p>Creamos catálogos, revistas y folletos informativos con una maquetación profesional y atractiva.</p>
+
+        <div class="portfolio-gallery">
+          <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Diseño 1">
+          <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80" alt="Diseño 2">
+          <img src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Diseño 3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios">
+    <div class="section-content">
+      <h2>Testimonios</h2>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <p>“Excelente trabajo. Captaron perfectamente la esencia de nuestra marca.”</p>
+          <h4>- Laura Gómez, CEO de FreshLook</h4>
+        </div>
+        <div class="testimonial">
+          <p>“Creatividad, puntualidad y calidad. Recomendadísimos.”</p>
+          <h4>- Juan Pérez, Director de Marketing</h4>
+        </div>
+        <div class="testimonial">
+          <p>“Superaron nuestras expectativas con diseños únicos y elegantes.”</p>
+          <h4>- Camila Torres, Emprendedora</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-content">
+      <h2>Contáctanos</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
+          <strong>Instagram</strong>
+          <p>@NovaDesign_CE</p>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook" />
+          <strong>Facebook</strong>
+          <p>@NovaDesign_CE</p>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+          <strong>Twitter/X</strong>
+          <p>@NovaDesign_CE</p>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+          <strong>WhatsApp</strong>
+          <p>+57 301 3556893</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Nova Design - Creative Studio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Animaciones al hacer scroll
+    const sections = document.querySelectorAll('.section-content');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.parentElement.id;
+        const navLink = document.querySelector(`nav ul li a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          navLinks.forEach(link => link.classList.remove('active'));
+          navLink.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
