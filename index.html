@@ -23,13 +23,13 @@
       box-sizing: border-box;
     }
 
+
     body {
       font-family: 'Poppins', sans-serif;
       background: #2E2F2F;
       color: #F2E0D5;
       overflow-x: hidden;
       scroll-behavior: smooth;
-    }
 
     /* ==== NAV ==== */
     nav {
@@ -243,6 +243,20 @@
       gap: 25px;
       margin-top: 30px;
     }
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 🔥 3 columnas fijas */
+  gap: 25px;
+  margin-top: 30px;
+}
+.portfolio-gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
 
     .portfolio-gallery img {
       width: 100%;
@@ -281,6 +295,28 @@
     .testimonial:hover {
       transform: translateY(-10px);
     }
+/* BOTÓN WHATSAPP FLOTANTE */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  background: #25D366;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  transition: transform .3s ease;
+}
+
+.btn-whatsapp img {
+  width: 45px;
+  height: 45px;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.12);
+}
+
 
     .testimonial p {
       font-style: italic;
@@ -478,32 +514,43 @@
   </section>
 
   <section id="contacto">
-    <div class="section-content">
-      <h2>Contáctanos</h2>
-      <div class="contact-grid">
-        <div class="contact-item">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
-          <strong>Instagram</strong>
-          <p>@NovaDesign_CE</p>
-        </div>
-        <div class="contact-item">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook" />
-          <strong>Facebook</strong>
-          <p>@NovaDesign_CE</p>
-        </div>
-        <div class="contact-item">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
-          <strong>Twitter/X</strong>
-          <p>@NovaDesign_CE</p>
-        </div>
-        <div class="contact-item">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-          <strong>WhatsApp</strong>
-          <p>+57 301 3556893</p>
-        </div>
-      </div>
+  <div class="section-content">
+    <h2>Contáctanos</h2>
+
+    <div class="contact-grid">
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/NovaDesign_CE" target="_blank" class="contact-item" style="text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
+        <strong>Instagram</strong>
+        <p>@NovaDesign_CE</p>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://facebook.com/NovaDesign_CE" target="_blank" class="contact-item" style="text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook" />
+        <strong>Facebook</strong>
+        <p>@NovaDesign_CE</p>
+      </a>
+
+      <!-- Twitter / X -->
+      <a href="https://x.com/NovaDesign_CE" target="_blank" class="contact-item" style="text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+        <strong>Twitter/X</strong>
+        <p>@NovaDesign_CE</p>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/573013556893" target="_blank" class="contact-item" style="text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+        <strong>WhatsApp</strong>
+        <p>+57 301 3556893</p>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <footer>
     <p>&copy; 2024 Nova Design - Creative Studio. Todos los derechos reservados.</p>
